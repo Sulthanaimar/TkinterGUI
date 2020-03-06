@@ -123,21 +123,30 @@ def query():
         c.execute("SELECT *, oid FROM Movies")
         movies = c.fetchall()
         print(movies)
+        # Window for query
+        top2 = Toplevel()
+        top2.title('Query')
+        top2.geometry("1000x1000")
+        frame = Frame(top2)
+        frame.pack()
         # Loop thru results
-        print_movies = ''
+        #print_oid = ''
+        movie_btn = []
         for movie in movies:
-                print_movies += str(movie[0]) + " " + str(movie[1]) + " " + "\t" + "\n"
-        
+                movie_btn.append(Button(frame, text=str(movie[5]) + " " + "\t" + "\n", command=moviedt).pack(padx=100))
+
         print_oid = ''
         for oid in movies:
                 print_oid += str(oid[5]) + "\n"
 
-        #how to generate multiple buttons (please run the code first then click show movies db!)
-        query_button = Button(root, text=print_movies, command=moviedt)
-        query_button.grid(row=0, column=3, pady=20)
+        #how to generate multiple buttons (please run the code first then click show movies db)
+        #query_button = Button(top2, text=print_movies, command=moviedt)
+        #query_button.grid(row=0, column=3, pady=20)
 
-        oid_label = Label(root, text=print_oid)
-        oid_label.grid(row=0, column=2)
+        #query_button = Button(frame, text=print_movies, command=moviedt)
+        #query_button.pack()
+        oid_label = Label(frame, text=print_oid)
+        oid_label.pack()
         
 # Create text boxes
 Movie = Entry(root, width=30)
