@@ -133,7 +133,7 @@ def query():
         #print_oid = ''
         movie_btn = []
         for movie in movies:
-                movie_btn.append(Button(frame, text=str(movie[5]) + " " + "\t" + "\n", command=moviedt).pack(padx=100))
+                movie_btn.append(Button(frame, text=str(movie[0]) + " " + str(movie[1]) + " " + "\t" + "\n", command=moviedt).pack(padx=100))
 
         print_oid = ''
         for oid in movies:
